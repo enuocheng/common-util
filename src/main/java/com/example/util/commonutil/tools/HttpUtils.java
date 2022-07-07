@@ -1,4 +1,4 @@
-package com.example.util.commonutil;
+package com.example.util.commonutil.tools;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;

@@ -1,4 +1,4 @@
-package com.example.util.commonutil;
+package com.example.util.commonutil.tools;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
