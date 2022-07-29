@@ -1,23 +1,8 @@
-/*
+
 package com.example.util.aop.authPerm;
 
-import com.moredian.onpremise.core.adapter.CacheAdapter;
-import com.moredian.onpremise.core.aop.authPerm.annotation.AuthPermAnnotation;
-import com.moredian.onpremise.core.common.constants.OpenApiConstants;
-import com.moredian.onpremise.core.common.constants.SymbolConstants;
-import com.moredian.onpremise.core.common.enums.OnpremiseErrorEnum;
-import com.moredian.onpremise.core.mapper.AccountAuthMapper;
-import com.moredian.onpremise.core.mapper.AccountMapper;
-import com.moredian.onpremise.core.mapper.AppMapper;
-import com.moredian.onpremise.core.mapper.AuthModuleMapper;
-import com.moredian.onpremise.core.model.domain.Account;
-import com.moredian.onpremise.core.model.domain.AccountAuth;
-import com.moredian.onpremise.core.model.response.AppResponse;
-import com.moredian.onpremise.core.model.response.AuthModuleResponse;
-import com.moredian.onpremise.core.model.response.UserLoginResponse;
-import com.moredian.onpremise.core.utils.AssertUtil;
+import com.example.util.aop.authPerm.annotation.AuthPermAnnotation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -33,19 +18,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-*/
+
 /**
  * 自定义切面，和自定义注解联合使用完成日志收集
  * @author Administrator
  *
- *//*
+ */
 
 @Component
 @Aspect
 @Slf4j
 public class AuthPermAop {
 
-	@Autowired
+	/*@Autowired
 	private HttpServletRequest request;
 	@Autowired
 	private AccountMapper accountMapper;
@@ -54,16 +39,16 @@ public class AuthPermAop {
 	@Autowired
 	private AuthModuleMapper authModuleMapper;
 	@Autowired
-	private AppMapper appMapper;
+	private AppMapper appMapper;*/
 
-	@Pointcut(value="@annotation(com.moredian.onpremise.core.aop.authPerm.annotation.AuthPermAnnotation)")
+	@Pointcut(value="@annotation(com.example.util.aop.authPerm.annotation.AuthPermAnnotation)")
 	public void pointCut(){
 		
 	}
 	
 	@Around(value="pointCut()&&@annotation(authPermAnnotation)")
 	public Object aroundAdvice(ProceedingJoinPoint pjp, AuthPermAnnotation authPermAnnotation) throws Throwable{
-		String sessionId = request.getSession().getId();
+		/*String sessionId = request.getSession().getId();
 		UserLoginResponse loginResponse = CacheAdapter.getLoginInfo(sessionId);
 		if (loginResponse==null){
 			loginResponse = CacheAdapter.getLoginInfo(OpenApiConstants.OPEN_API_LOGIN_ACCOUNT);
@@ -98,8 +83,7 @@ public class AuthPermAop {
 				}
 			}
 			AssertUtil.isTrue(isAllow, OnpremiseErrorEnum.ACCOUNT_AUTH_NOT_ALLOW_FOR_INTERFACE);
-		}
+		}*/
 		return pjp.proceed() ;
 	}
 }
-*/
